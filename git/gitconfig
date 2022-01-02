@@ -1,0 +1,71 @@
+[user]
+    name = hitzhangjie
+    email = hit.zhangjie@gmail.com
+
+[includeIf "gitdir:~/Projects/Tencent/**"]
+    path = ~/.gitcode
+
+[core]
+    editor = /usr/bin/vim
+    quotepath = false
+    excludesfile = /Users/zhangjie/.gitignore_global
+    pager = less
+    autocrlf = input
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[push]
+    default = simple
+[alias]
+    co = clone
+    ck = checkout
+    cc = commit
+    ss = status
+    bb = branch
+    ff = "fetch --prune"
+    rr = "remote -v"
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    visual = !gitk
+    #logx = "log --pretty=format:'%Cgreen%h %Cred%ct, %Cblue%cr, %Cred[Subject]: %s%Creset'"
+    logx = "log --abbrev-commit --graph --pretty=format:'%Cgreen%h %C(bold blue)%cr %Creset>>> %C(bold yellow)%<(78,trunc)%s %Creset<<< %Cred<%an>%Creset'"
+    logxx = "log --abbrev-commit --graph --pretty=format:'%Cgreen%h %C(bold blue)%ci %Creset>>> %C(bold yellow)%<(78,trunc)%s %Creset<<< %Cred<%an>%Creset'"
+    cp = "cherry-pick"
+
+[merge]
+    tool = kdiff3
+[credential]
+    helper = store
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
+[mergetool "sourcetree"]
+    cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+[commit]
+    template = /Users/zhangjie/.stCommitMsg
+[pull]
+    rebase = false
+
+[url "git@github.com:"]
+    #insteadOf = https://github.com/
+
